@@ -1,0 +1,20 @@
+<h1>Create a Post</h1>
+
+
+<%= form_with scope: :post, url: posts_path, local: true do |form| %>
+  <div>
+    <%= form.label :caption %>
+    <%= form.text_field :caption %>
+  </div>
+
+  <div class="field">
+  <%= form.label :pinterest_photo %>
+  <%= form.label :photo do %>
+  <%= form.file_field :photo %>
+  <%= form.hidden_field :photo_cache %>
+ <% end %>
+
+ <br>
+
+  <%= form.submit "Create Post" %>
+<% end %>
