@@ -23,11 +23,25 @@ class SessionsController < ApplicationController
     authentication = Authentication.find_by_provider_and_uid(auth_hash["provider"], auth_hash["uid"]) ||  Authentication.create_with_omniauth(auth_hash)
 
     # if: previously already logged in with OAuth
+
     if authentication.user
       user = authentication.user
       authentication.update_token(auth_hash)
       session[:user_id] = user.id
       redirect_to '/'
+
+
+    # else: user logs in with OAuth for the first time
+    else
+      user = User.create_with_auth_and_hash(authentication, auth_hash)
+      session[:user_id] = user.id
+      redirect_to '/'
+
+    end
+
+    # login_path(user)
+    # redirect_to @next, :notice => @notice
+
     # else: user logs in with OAuth for the first time
     else
       user = User.create_with_auth_and_hash(authentication, auth_hash)
@@ -35,6 +49,7 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       redirect_to '/'
     end
+
   end
 
 end
