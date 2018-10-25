@@ -1,5 +1,12 @@
 <h1>All posts</h1>
 
+<%= form_for :post, url: search_path, method: :get do |f| %>
+  <%= f.text_field :term, list: "list", placeholder: "search field" %><br/>
+  <datalist id="caption" ></datalist>
+  <%= f.submit "Search" %>
+<% end %>
+
+
   <% @posts.each do |p| %>
 
     <a href="posts/<%=p.id%>">

@@ -27,6 +27,8 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+gem 'jquery-rails'
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
@@ -65,3 +67,4 @@ gem "figaro"
 gem 'omniauth-google-oauth2'
 gem 'carrierwave', '~> 1.0'
 gem "mini_magick"
+gem 'pg_search'
