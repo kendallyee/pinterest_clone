@@ -1,0 +1,8 @@
+<h2>Search result</h2>
+
+<%= link_to 'All posts', posts_path %><br>
+
+<% @posts.each do |p| %>
+  <%= p.caption %><br>
+  <%= image_tag(p.photo.thumb.url) %><br>
+<% end %>
