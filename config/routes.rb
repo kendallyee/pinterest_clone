@@ -15,5 +15,6 @@ Rails.application.routes.draw do
   post '/users' => 'users#create'
 
  get "posts/search" => "posts#search", as: 'search'
-  resources :posts, controller: "posts", only: [:new, :index, :create, :show, :search]
+ get "posts/ajax_search" => "posts#ajax_search", as: 'ajax_search'
+  resources :posts, controller: "posts", only: [:new, :index, :create, :show, :search, :ajax_search]
 end

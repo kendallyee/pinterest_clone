@@ -1,8 +1,8 @@
 <h1>All posts</h1>
 
 <%= form_for :post, url: search_path, method: :get do |f| %>
-  <%= f.text_field :term, list: "list", placeholder: "search field" %><br/>
-  <datalist id="caption" ></datalist>
+  <%= f.text_field :term, list: "list", placeholder: "search field", name: "query" %><br/>
+  <datalist id="list" ></datalist>
   <%= f.submit "Search" %>
 <% end %>
 
@@ -16,3 +16,33 @@
      <br>
     <%= image_tag(p.photo.thumb.url || "/asdkubakdjb") %><br>
   <% end %>
+
+  <script>
+    $(document).on('turbolinks:load', function(){
+      $("#post_term").keyup(function() {
+        autocomplete()
+      });
+
+  function autocomplete() {
+        $.ajax ({
+          url: '/posts/ajax_search',
+          type: 'GET',
+          data: {query: $("#post_term").val()},
+          dataType: 'json',
+          error: function(){
+            console.log ("Error occurred");
+          },
+
+          success:function(data){
+            document.querySelector('#list').innerHTML = ""
+            data.forEach(function(element) {
+              var option = document.createElement("option");
+              option.value = element;
+              $("#list").append(option);
+
+            });
+          }
+        });
+      }
+    });
+  </script>
