@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>PinterestClone</title>
+    <title>Pinterest Clone</title>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
@@ -17,13 +17,26 @@
 
   <body>
       <% if current_user %>
-        Signed in as <%= current_user.name %> | <%= link_to "Logout", '/logout' %>
-          <br>
-            <%= link_to 'Create Post', new_post_path %>  |    <%= link_to 'Random Post ', random_path %>  |  <%= link_to 'All posts', posts_path %><br>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+              </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                Signed in as <%= current_user.name %> | <%= link_to "Logout", '/logout' %>  |
+                  <%= link_to 'Create Post', new_post_path %>  |    <%= link_to 'Random Post ', random_path %>  |  <%= link_to 'All posts', posts_path %><br>
+                </div>
+            </nav>
+              <% else %>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+              </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                  <%= link_to 'Login', '/login' %> | <%= link_to 'Signup', '/signup' %> | <%= link_to "Sign in with Google", "/auth/google_oauth2" %>
+              <% end %>
+              </div>
+            </nav>
 
-      <% else %>
-        <%= link_to 'Login', '/login' %> | <%= link_to 'Signup', '/signup' %> | <%= link_to "Sign in with Google", "/auth/google_oauth2" %>
-      <% end %>
     <%= yield %>
   </body>
 </html>

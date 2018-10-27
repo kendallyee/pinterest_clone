@@ -17,5 +17,6 @@ Rails.application.routes.draw do
  get "posts/search" => "posts#search", as: 'search'
  get "posts/ajax_search" => "posts#ajax_search", as: 'ajax_search'
  get "posts/random" => "posts#random", as: "random"
-  resources :posts, controller: "posts", only: [:new, :index, :create, :show, :search, :ajax_search, :random]
+
+  resources :posts, controller: "posts", only: [:new, :index, :create, :show, :search, :ajax_search, :random,]
 end

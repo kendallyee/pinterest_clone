@@ -13,3 +13,12 @@
  *= require_tree .
  *= require_self
  */
+
+ /* .flex-container {
+    display: flex;
+    flex-wrap: wrap;
+  } */
+
+  ul li {
+    display: inline-flex;
+  }
