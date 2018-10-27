@@ -44,6 +44,9 @@ class PostsController < ApplicationController
     render 'posts/show'
   end
 
+  def random
+  end
+
   # def destroy
   #   @post = Post.find(params[:id])
   #   @post.destroy

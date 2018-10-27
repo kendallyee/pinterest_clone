@@ -6,16 +6,22 @@
   <%= f.submit "Search" %>
 <% end %>
 
-
+<div>
   <% @posts.each do |p| %>
 
     <a href="posts/<%=p.id%>">
       <h4><%= p.caption %></h4>
-        </a>
+    </a>
 
      <br>
     <%= image_tag(p.photo.thumb.url || "/asdkubakdjb") %><br>
+
+    <div>
+      <a href="http://www.google.com">Google</a>
+    </div>
+
   <% end %>
+</div>
 
   <script>
     $(document).on('turbolinks:load', function(){
