@@ -9,6 +9,7 @@ const list = document.getElementById('list-data')
 // set onsubmit
 form.onsubmit = function(event) {
 	event.preventDefault();
+	
 
 	// get value in input field
 	const queryTerm = query.value;

@@ -14,11 +14,18 @@
  *= require_self
  */
 
- /* .flex-container {
-    display: flex;
-    flex-wrap: wrap;
-  } */
 
-  ul li {
+
+  #list-data li {
     display: inline-flex;
+  	max-width: 200px;
+    margin: 5px;
+    float: left;
+    width: 180px;
+
   }
+
+  li img {
+	  max-width: 100%;
+    height: auto;
+}
