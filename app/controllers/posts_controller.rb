@@ -6,11 +6,20 @@ class PostsController < ApplicationController
 
   def search
     @posts = Post.all
-    if params[:post][:term]
-      @posts = @posts.search_by_posts(params[:post][:term])
+    if params[:query]           # rename [:post][:term] as [:query]
+      @posts = @posts.search_by_posts(params[:query])
 
     else
       @posts = @posts
+    end
+  end
+
+  def ajax_search
+      @posts = Post.all
+      @posts = Post.search_by_posts(params["query"]).pluck(:caption).uniq
+      respond_to do |format|    #collect data and save as string
+      format.json {render json: @posts}
+      format.js
     end
   end
 
