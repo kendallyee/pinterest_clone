@@ -13,3 +13,19 @@
  *= require_tree .
  *= require_self
  */
+
+
+
+  #list-data li {
+    display: inline-flex;
+  	max-width: 200px;
+    margin: 5px;
+    float: left;
+    width: 180px;
+
+  }
+
+  li img {
+	  max-width: 100%;
+    height: auto;
+}

@@ -1,6 +1,23 @@
-<h2>Search result</h2>
+<div class="container-fluid">
+  <h2>Search result</h2>
 
 <% @posts.each do |p| %>
-  <%= p.caption %><br>
-  <%= image_tag(p.photo.thumb.url) %><br>
+
+<div class="d-inline-flex p-2 ">
+  <div class="card" style="width: 18rem;" >
+      <a href="/posts/<%=p.id%>" >
+          <h4 class="card-header"><%= p.caption %></h4>
+
+      </a>
+   <br>
+
+  <%= image_tag(p.photo.thumb.url) %>
+
+  <div class="card-body text-body">
+        <a href="http://www.google.com">Google</a>
+      </div>
+    </div>
+  </div>
+
 <% end %>
+</div>

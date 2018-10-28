@@ -1,3 +1,11 @@
-<h2><%= @post.caption %></h2>
+<div class="container-fluid">
+  <h2><%= @post.caption %></h2>
+    <%= image_tag(@post.photo.thumb.url) %><br>
 
-<%= image_tag(@post.photo.thumb.url) %><br>
+  <br>
+
+    <form id="comment-form">
+      <input id="Comment" type="text" placeholder="Please comment in here"/>
+      <input type="submit" value="Post"/>
+    </form>
+  </div>
