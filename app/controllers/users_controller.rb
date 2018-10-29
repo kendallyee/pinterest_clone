@@ -19,7 +19,7 @@ def new
 		else
 
 			flash[:alert] = "Unable to register account, check details and retry!"
-			render '/signup'
+			redirect_to '/signup'
 
 		end
 

@@ -1,6 +1,7 @@
 class User < ApplicationRecord
-  validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, :on => :create
-
+  validates :email, :format => { :with => /\w+[@]\w+[.]\w{1}\w+/}, uniqueness: true, :presence => true
+  validates :name, :format => { :with => /\w+[^ ]/}, uniqueness: true, :presence => true
+  validates :password, presence: true
   has_secure_password
 
   has_many :authentications, dependent: :destroy
